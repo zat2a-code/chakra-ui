@@ -173,3 +173,18 @@ export const WithLayerStyleInComponentTheme = () => (
     <Div>Welcome</Div>
   </ThemeProvider>
 )
+
+const Box = chakra.div
+
+export const WithTransform = () => (
+  <Box
+    w="12"
+    h="12"
+    bg="tomato"
+    transition="all 0.2s"
+    _hover={{ bg: "green.400", translateX: "20px" }}
+    _active={{ scale: 1.2 }}
+  >
+    Hello
+  </Box>
+)

@@ -12,6 +12,7 @@ import {
 import { CSSObject, StyleObjectOrFn } from "./types"
 import { parser } from "./parser"
 import { pseudoSelectors } from "./pseudo"
+import { hasTransformProperty, transformString } from "./utils/transform"
 
 interface Cache {
   themeBreakpoints: string[]
@@ -85,7 +86,7 @@ const calculateBreakpointAndMediaQueries = (
 }
 
 export const processResponsive = (styles: any) => (theme: Dict) => {
-  const computedStyles: any = {}
+  const computedStyles: Dict = {}
 
   const { breakpoints, mediaQueries } = calculateBreakpointAndMediaQueries(
     theme.breakpoints,
@@ -132,7 +133,7 @@ export const processResponsive = (styles: any) => (theme: Dict) => {
 
 type PropsOrTheme = Dict | { theme: Dict }
 
-export const css = (styleOrFn: StyleObjectOrFn = {}) => (
+export const css = (styleOrFn: StyleObjectOrFn = {}, nested = false) => (
   props: PropsOrTheme = {},
 ): CSSObject => {
   const theme = "theme" in props ? props.theme : props
@@ -142,11 +143,15 @@ export const css = (styleOrFn: StyleObjectOrFn = {}) => (
   const styleObject = runIfFn(styleOrFn, theme)
   const styles = processResponsive(styleObject)(theme)
 
-  for (const k in styles) {
-    const x = styles[k]
+  if (hasTransformProperty(styles) && !nested) {
+    computedStyles.transform = styles.transform ?? transformString
+  }
+
+  for (const attr in styles) {
+    const x = styles[attr]
     const val = runIfFn(x, theme)
 
-    const key = k in pseudoSelectors ? pseudoSelectors[k] : k
+    const key = attr in pseudoSelectors ? pseudoSelectors[attr] : attr
     let config = (parser.config as Dict)[key]
 
     if (config === true) {
@@ -155,7 +160,7 @@ export const css = (styleOrFn: StyleObjectOrFn = {}) => (
     }
 
     if (isObject(val)) {
-      computedStyles[key] = css(val)(theme)
+      computedStyles[key] = css(val, true)(theme)
       continue
     }
 
@@ -165,7 +170,7 @@ export const css = (styleOrFn: StyleObjectOrFn = {}) => (
      * Useful for `layerStyle`, and `textStyle` to transform the returned
      * result since it might use theme tokens
      */
-    value = config?.processResult ? css(value)(theme) : value
+    value = config?.processResult ? css(value, true)(theme) : value
 
     if (config?.properties) {
       for (const property of config.properties) {

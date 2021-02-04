@@ -25,8 +25,8 @@ export interface Parser {
 export type Scale = ObjectOrArray<number | string>
 
 export interface PropConfig {
-  property?: keyof Properties | "&"
-  properties?: Array<keyof Properties>
+  property?: keyof Properties | (string & {})
+  properties?: Array<keyof Properties | (string & {})>
   scale?: string
   defaultScale?: Scale
   transform?(value: any, scale: any, props: Props): any
