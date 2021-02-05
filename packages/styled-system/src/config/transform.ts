@@ -2,6 +2,9 @@ import * as CSS from "csstype"
 import { Config, createParser, system } from "../core"
 import { ResponsiveValue, Token } from "../utils"
 
+const degree = (value: string) =>
+  value && !String(value).endsWith("deg") ? `${value}deg` : value
+
 const config: Config = {
   transform: true,
   transformOrigin: true,
@@ -10,11 +13,15 @@ const config: Config = {
   },
   scaleX: { property: "--scale-x" },
   scaleY: { property: "--scale-y" },
-  rotate: { property: "--rotate" },
+  rotate: { property: "--rotate", transform: degree },
   translateX: { property: "--translate-x" },
   translateY: { property: "--translate-y" },
-  skewX: { property: "--skew-x" },
-  skewY: { property: "--skew-y" },
+  skew: {
+    properties: ["--skew-x", "--skew-y"],
+    transform: degree,
+  },
+  skewX: { property: "--skew-x", transform: degree },
+  skewY: { property: "--skew-y", transform: degree },
 }
 
 export interface TransformProps {

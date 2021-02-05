@@ -182,8 +182,7 @@ export const WithTransform = () => (
     h="12"
     bg="tomato"
     transition="all 0.2s"
-    _hover={{ bg: "green.400", translateX: "20px" }}
-    _active={{ scale: 1.2 }}
+    _hover={{ scale: 1.2, rotate: 30 }}
   >
     Hello
   </Box>

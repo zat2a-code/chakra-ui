@@ -8,7 +8,14 @@ test("should transform properties", () => {
     rotate: 4,
   })({})
 
-  expect(input).toMatchInlineSnapshot()
+  expect(input).toMatchInlineSnapshot(`
+    Object {
+      "--rotate": "4deg",
+      "--translate-x": 3,
+      "--translate-y": 5,
+      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0))",
+    }
+  `)
 })
 
 test("should transform css transform properties nested deep", () => {
@@ -25,7 +32,21 @@ test("should transform css transform properties nested deep", () => {
     },
   })({})
 
-  expect(input).toMatchInlineSnapshot()
+  expect(input).toMatchInlineSnapshot(`
+    Object {
+      "&:hover": Object {
+        "&:after": Object {
+          "--translate-x": 10,
+        },
+        "--translate-x": 6,
+        "--translate-y": 10,
+      },
+      "--rotate": "4deg",
+      "--translate-x": 3,
+      "--translate-y": 5,
+      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0))",
+    }
+  `)
 })
 
 test("should preserve other css properties", () => {
@@ -55,10 +76,10 @@ test("should preserve other css properties", () => {
         "--translate-y": 10,
         "background": "red.400",
       },
-      "--rotate-y": 4,
+      "--rotate": "4deg",
       "--translate-x": 3,
       "--translate-y": 5,
-      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1))",
+      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0))",
     }
   `)
 })
@@ -79,7 +100,7 @@ test("can be overriden by custom transform", () => {
       "&:hover, &[data-hover]": Object {
         "transform": "rotate(4deg)",
       },
-      "--rotate-y": 4,
+      "--rotate": "4deg",
       "--translate-x": 3,
       "--translate-y": 5,
       "transform": "scale(1.5)",
@@ -106,7 +127,7 @@ test("should work with responsive syntax", () => {
           "--scale-y": 4,
         },
       },
-      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1))",
+      "transform": "translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) rotate(var(--rotate, 0)) scaleX(var(--scale-x, 1)) scaleY(var(--scale-y, 1)) skewX(var(--skew-x, 0)) skewY(var(--skew-y, 0))",
     }
   `)
 })

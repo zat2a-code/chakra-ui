@@ -9,10 +9,10 @@ import {
   objectToArrayNotation,
   runIfFn,
 } from "@chakra-ui/utils"
-import { CSSObject, StyleObjectOrFn } from "./types"
 import { parser } from "./parser"
 import { pseudoSelectors } from "./pseudo"
-import { hasTransformProperty, transformString } from "./utils/transform"
+import { CSSObject, StyleObjectOrFn } from "./types"
+import { hasTransformProperty, getTransformTemplate } from "./utils/transform"
 
 interface Cache {
   themeBreakpoints: string[]
@@ -144,12 +144,14 @@ export const css = (styleOrFn: StyleObjectOrFn = {}, nested = false) => (
   const styles = processResponsive(styleObject)(theme)
 
   if (hasTransformProperty(styles) && !nested) {
-    computedStyles.transform = styles.transform ?? transformString
+    computedStyles.transform =
+      styles.transform ??
+      getTransformTemplate(theme.config?.enableHardwareAcceleration)
   }
 
   for (const attr in styles) {
-    const x = styles[attr]
-    const val = runIfFn(x, theme)
+    const attrValue = styles[attr]
+    const val = runIfFn(attrValue, theme)
 
     const key = attr in pseudoSelectors ? pseudoSelectors[attr] : attr
     let config = (parser.config as Dict)[key]
