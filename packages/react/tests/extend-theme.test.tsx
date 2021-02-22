@@ -1,4 +1,3 @@
-import * as React from "react"
 import { extendTheme, ThemeOverride } from "../src/extend-theme"
 import { createBreakpoints } from "@chakra-ui/theme-tools"
 
@@ -43,6 +42,29 @@ describe("extendTheme", () => {
     expect(Object.keys(solidStyles).length).toBeGreaterThan(1)
   })
 
+  it("should merge component baseStyle object with a function result", () => {
+    const testColor = "papayawhip"
+    const override = {
+      components: {
+        Button: {
+          baseStyle: () => ({
+            bg: testColor,
+          }),
+        },
+      },
+    }
+
+    const customTheme = extendTheme(override)
+
+    const { baseStyle, defaultProps } = customTheme.components.Button
+    const baseStyles = baseStyle()
+
+    expect(baseStyles.bg).toBe(testColor)
+
+    // should have more properties from the default theme
+    expect(Object.keys(baseStyles).length).toBeGreaterThan(1)
+  })
+
   it("should override component variant with an object", () => {
     const testColor = "papayawhip"
     const override = {
@@ -66,6 +88,20 @@ describe("extendTheme", () => {
 
     // should have more properties from the default theme
     expect(Object.keys(solidStyles).length).toBeGreaterThan(1)
+  })
+
+  it("should be able to extend a multipart component", () => {
+    const override: ThemeOverride = {
+      components: {
+        Textarea: {
+          defaultProps: {
+            focusBorderColor: "green.200",
+          },
+        },
+      },
+    }
+
+    extendTheme(override)
   })
 
   it("should pass typescript lint with random custom theme", () => {
@@ -200,5 +236,25 @@ describe("extendTheme", () => {
     delete Array.prototype["customFunction"]
 
     expect((customTheme.breakpoints as any).customFunction).toBeUndefined()
+  })
+
+  it("should allow custom breakpoints", () => {
+    const override = {
+      breakpoints: createBreakpoints({
+        sm: "1px",
+        md: "2px",
+        lg: "3px",
+        xl: "4px",
+        phone: "5px",
+      }),
+    }
+
+    const customTheme = extendTheme(override)
+
+    expect(customTheme.breakpoints).toHaveProperty("sm")
+    expect(customTheme.breakpoints).toHaveProperty("md")
+    expect(customTheme.breakpoints).toHaveProperty("lg")
+    expect(customTheme.breakpoints).toHaveProperty("xl")
+    expect(customTheme.breakpoints).toHaveProperty("phone")
   })
 })

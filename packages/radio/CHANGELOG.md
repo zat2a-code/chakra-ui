@@ -1,5 +1,39 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- [`b99b8674f`](https://github.com/chakra-ui/chakra-ui/commit/b99b8674f1c1874d5805cb3ad2e893c0d852374f)
+  [#3364](https://github.com/chakra-ui/chakra-ui/pull/3364) Thanks
+  [@grahhham](https://github.com/grahhham)! - - Improve the semantic HTML
+  structure of checkbox. `label` is a phrasing content element and should not
+  contain block element `div`.
+  - Replaced `div` with `span` which is an inline element.
+
+## 1.2.2
+
+### Patch Changes
+
+- [`01231ed49`](https://github.com/chakra-ui/chakra-ui/commit/01231ed4919521fbe911cb1b035f4beadb340fa5)
+  [#3298](https://github.com/chakra-ui/chakra-ui/pull/3298) Thanks
+  [@segunadebayo](https://github.com/segunadebayo)! - Provide better typings for
+  `size` and `variant` for AvatarGroup, CheckboxGroup, ButtonGroup, and
+  RadioGroup.
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ff4a36bca`](https://github.com/chakra-ui/chakra-ui/commit/ff4a36bca11cc177830f6f1da13700acd1e3a087),
+  [`483687237`](https://github.com/chakra-ui/chakra-ui/commit/483687237f2c4fed05dc6a79693f307c601c1285),
+  [`61962345c`](https://github.com/chakra-ui/chakra-ui/commit/61962345c5b1c862445c16c586e304b28c376c9a)]:
+  - @chakra-ui/utils@1.2.0
+  - @chakra-ui/form-control@1.2.1
+  - @chakra-ui/visually-hidden@1.0.4
+  - @chakra-ui/hooks@1.1.4
+
 ## 1.2.0
 
 ### Minor Changes

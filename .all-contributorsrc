@@ -1744,7 +1744,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/34794189?v=4",
       "profile": "https://github.com/dominictwlee",
       "contributions": [
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -1770,6 +1771,42 @@
       "name": "Endika Intxaurtieta",
       "avatar_url": "https://avatars.githubusercontent.com/u/24615080?v=4",
       "profile": "https://github.com/eintxaurtieta",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mattwells19",
+      "name": "Matt Wells",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36650048?v=4",
+      "profile": "https://github.com/mattwells19",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "anantja-in",
+      "name": "Anant Jain",
+      "avatar_url": "https://avatars.githubusercontent.com/u/509059?v=4",
+      "profile": "http://anantja.in",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "tomchentw",
+      "name": "Tom Chen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/922234?v=4",
+      "profile": "https://medium.com/@tomchentw",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "emiranda04",
+      "name": "Ernie Miranda",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11409613?v=4",
+      "profile": "https://github.com/emiranda04",
       "contributions": [
         "doc"
       ]

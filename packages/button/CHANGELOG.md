@@ -1,5 +1,26 @@
 # Change Log
 
+## 1.1.2
+
+### Patch Changes
+
+- [`01231ed49`](https://github.com/chakra-ui/chakra-ui/commit/01231ed4919521fbe911cb1b035f4beadb340fa5)
+  [#3298](https://github.com/chakra-ui/chakra-ui/pull/3298) Thanks
+  [@segunadebayo](https://github.com/segunadebayo)! - Provide better typings for
+  `size` and `variant` for AvatarGroup, CheckboxGroup, ButtonGroup, and
+  RadioGroup.
+
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ff4a36bca`](https://github.com/chakra-ui/chakra-ui/commit/ff4a36bca11cc177830f6f1da13700acd1e3a087),
+  [`483687237`](https://github.com/chakra-ui/chakra-ui/commit/483687237f2c4fed05dc6a79693f307c601c1285),
+  [`61962345c`](https://github.com/chakra-ui/chakra-ui/commit/61962345c5b1c862445c16c586e304b28c376c9a)]:
+  - @chakra-ui/utils@1.2.0
+  - @chakra-ui/spinner@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes

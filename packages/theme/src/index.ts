@@ -1,16 +1,16 @@
 import components from "./components"
 import foundations from "./foundations"
 import styles from "./styles"
-import { ChakraTheme, ThemeConfig, ThemeDirection } from "./theme.types"
+import { ThemeConfig, ThemeDirection } from "./theme.types"
 
-const direction: ThemeDirection = "ltr"
+const direction = "ltr" as ThemeDirection
 
 const config: ThemeConfig = {
   useSystemColorMode: false,
   initialColorMode: "light",
 }
 
-const defaultTheme = {
+export const theme = {
   direction,
   ...foundations,
   components,
@@ -18,9 +18,13 @@ const defaultTheme = {
   config,
 }
 
-export const theme: ChakraTheme = defaultTheme
+export type Theme = typeof theme
 
-export type DefaultChakraTheme = typeof defaultTheme
+/**
+ * @deprecated
+ * Duplicate theme type. Please use `Theme`
+ */
+export type DefaultChakraTheme = Theme
 
 export * from "./theme.types"
 

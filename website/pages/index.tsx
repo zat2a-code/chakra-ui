@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   BoxProps,
   Button,
@@ -9,6 +10,7 @@ import {
   Flex,
   Grid,
   Heading,
+  HStack,
   Icon,
   Img,
   LightMode,
@@ -36,7 +38,7 @@ import * as React from "react"
 import { AiFillThunderbolt } from "react-icons/ai"
 import { DiGithubBadge } from "react-icons/di"
 import { FaArrowRight, FaDiscord, FaMicrophone } from "react-icons/fa"
-import { FiDownload, FiGithub, FiUsers } from "react-icons/fi"
+import { FiDownload, FiGithub, FiUsers, FiArrowRight } from "react-icons/fi"
 import { IoMdMoon } from "react-icons/io"
 import { MdAccessibility, MdGrain, MdPalette } from "react-icons/md"
 import type { Member, Sponsor } from "src/types/github"
@@ -70,7 +72,7 @@ const Feature = ({ title, icon, children, ...props }) => {
   )
 }
 
-type StatBoxProps = BoxProps & {
+interface StatBoxProps extends BoxProps {
   icon?: React.ElementType
   title: string
   description: string
@@ -82,7 +84,7 @@ const StatBox = (props: StatBoxProps) => {
     <Flex
       direction="column"
       align={{ base: "center", md: "flex-start" }}
-      pl={{ base: 0, md: "8" }}
+      pl={{ base: "0", md: "8" }}
       borderLeft="2px solid"
       borderLeftColor="yellow.200"
       {...rest}
@@ -101,6 +103,71 @@ const StatBox = (props: StatBoxProps) => {
     </Flex>
   )
 }
+
+const ChakraProAd = () => (
+  <Box as="section" bg="gray.900" color="white" overflow="hidden">
+    <Container pt="24" pb="0">
+      <Flex align="center" direction="column" textAlign="center" mb="10">
+        <Text casing="uppercase" letterSpacing="wide" fontWeight="bold">
+          Premium components{" "}
+          <Badge
+            colorScheme="yellow"
+            variant="solid"
+            color="gray.800"
+            mt="-1"
+            ml="2"
+          >
+            New
+          </Badge>
+        </Text>
+        <Heading
+          mt="4"
+          fontWeight="extrabold"
+          size="3xl"
+          maxW="14ch"
+          mx="auto"
+          letterSpacing="tighter"
+        >
+          <Box
+            as="span"
+            bgGradient="linear(to-r, blue.400, teal.400)"
+            bgClip="text"
+          >
+            Build faster
+          </Box>{" "}
+          with Chakra UI Pro 💎
+        </Heading>
+        <Text maxW="48ch" mx="auto" fontSize="lg" mt="6" opacity={0.8}>
+          Beautiful and responsive React components to build your application or
+          marketing pages quicker.
+        </Text>
+        <HStack
+          mt="6"
+          as="a"
+          bg="whiteAlpha.300"
+          rounded="md"
+          px="8"
+          py="3"
+          href="https://pro.chakra-ui.com/components?ref=chakra-ui.com"
+          color="white"
+          fontSize="lg"
+          fontWeight="semibold"
+          transition="all 0.2s"
+          _hover={{ bg: "whiteAlpha.400" }}
+        >
+          <Text>Learn more</Text>
+          <Box as={FiArrowRight} display="inline-block" ml="2" />
+        </HStack>
+      </Flex>
+      <Img
+        position="relative"
+        top="3"
+        alt="Chakra UI Pro Image"
+        src="https://res.cloudinary.com/adebayosegun/image/upload/v1613045547/Chakra%20UI/Group_207.png"
+      />
+    </Container>
+  </Box>
+)
 
 interface HomePageProps {
   members: Member[]
@@ -128,12 +195,12 @@ const HomePage = ({ members, sponsors }: HomePageProps) => {
           <Container>
             <Box textAlign="center">
               <chakra.h1
-                maxW="18ch"
+                maxW="16ch"
                 mx="auto"
                 fontSize={{ base: "2.25rem", sm: "3rem", lg: "4rem" }}
                 fontFamily="heading"
-                letterSpacing="tight"
-                fontWeight="bold"
+                letterSpacing="tighter"
+                fontWeight="extrabold"
                 mb="16px"
                 lineHeight="1.2"
               >
@@ -363,12 +430,12 @@ const HomePage = ({ members, sponsors }: HomePageProps) => {
             >
               <StatBox
                 icon={FiDownload}
-                title="200k"
+                title="250k"
                 description="Downloads per month"
               />
               <StatBox
                 icon={FiGithub}
-                title="14.4k"
+                title="15.2k"
                 description="Github stars"
               />
               <StatBox
@@ -378,7 +445,7 @@ const HomePage = ({ members, sponsors }: HomePageProps) => {
               />
               <StatBox
                 icon={FaDiscord}
-                title="1900+"
+                title="1.9K"
                 description="Discord members"
               />
             </SimpleGrid>
@@ -588,40 +655,9 @@ const HomePage = ({ members, sponsors }: HomePageProps) => {
           </Container>
         </Box>
 
-        <Box>
-          <Container py="120px" maxW="800px" mx="auto" textAlign="center">
-            <Flex direction="column" align="center">
-              <Center rounded="full" w="100px" h="100px" bg="teal.400">
-                <LogoMark w="80%" color="white" />
-              </Center>
-              <Box maxW="600px" mx="auto">
-                <chakra.h2 textStyle="heading-2" mt="6" mb="6">
-                  Get started with Chakra today
-                </chakra.h2>
-                <Text mb="40px" fontSize="lg" opacity={0.7}>
-                  Chakra keeps everyone aligned and working without friction.
-                  Engineers and designers using the same language.
-                </Text>
-              </Box>
-              <NextLink href="/docs/getting-started" passHref>
-                <Button
-                  h="4rem"
-                  px="40px"
-                  fontSize="1.2rem"
-                  as="a"
-                  size="lg"
-                  colorScheme="teal"
-                  rightIcon={<FaArrowRight fontSize="0.8em" />}
-                >
-                  Get Started
-                </Button>
-              </NextLink>
-            </Flex>
-          </Container>
-        </Box>
+        <ChakraProAd />
 
         <Box
-          bg={useColorModeValue("teal.50", "#81e6d91c")}
           bgImage="url(/audio-bar.svg)"
           bgPos="bottom center"
           bgSize="120px"
@@ -635,7 +671,7 @@ const HomePage = ({ members, sponsors }: HomePageProps) => {
             textAlign="center"
           >
             <Flex direction="column" align="center" maxW="600px" mx="auto">
-              <Circle size="80px" bg="blackAlpha.200">
+              <Circle size="80px" bg="blackAlpha.200" color="teal.400">
                 <FaMicrophone size="40px" />
               </Circle>
               <chakra.h2 textStyle="heading" mt="6" mb="6">

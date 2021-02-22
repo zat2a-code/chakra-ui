@@ -93,11 +93,11 @@ To use Chakra UI components, all you need to do is install the
 `@chakra-ui/react` package and its peer dependencies:
 
 ```sh
-$ yarn add @chakra-ui/react framer-motion
+$ yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 # or
 
-$ npm install @chakra-ui/react framer-motion
+$ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
 
 ## Usage
@@ -392,12 +392,16 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://github.com/jnmsl"><img src="https://avatars0.githubusercontent.com/u/44583047?v=4?s=64" width="64px;" alt=""/><br /><sub><b>jnmsl</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=jnmsl" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/MohamedSayed008"><img src="https://avatars3.githubusercontent.com/u/23707834?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Mohamed Sayed</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=MohamedSayed008" title="Code">💻</a></td>
     <td align="center"><a href="http://sampoder.com"><img src="https://avatars3.githubusercontent.com/u/39828164?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Sam Poder</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=sampoder" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/dominictwlee"><img src="https://avatars2.githubusercontent.com/u/34794189?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Dominic Lee</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=dominictwlee" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/dominictwlee"><img src="https://avatars2.githubusercontent.com/u/34794189?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Dominic Lee</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=dominictwlee" title="Documentation">📖</a> <a href="https://github.com/chakra-ui/chakra-ui/commits?author=dominictwlee" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/ferasaloudah"><img src="https://avatars1.githubusercontent.com/u/45723438?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Feras Aloudah</b></sub></a><br /><a href="#ideas-FerasAloudah" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://jungaretti.com"><img src="https://avatars.githubusercontent.com/u/19893438?v=4?s=64" width="64px;" alt=""/><br /><sub><b>JP Ungaretti</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=jungaretti" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/eintxaurtieta"><img src="https://avatars.githubusercontent.com/u/24615080?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Endika Intxaurtieta</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=eintxaurtieta" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/mattwells19"><img src="https://avatars.githubusercontent.com/u/36650048?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Matt Wells</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=mattwells19" title="Code">💻</a></td>
+    <td align="center"><a href="http://anantja.in"><img src="https://avatars.githubusercontent.com/u/509059?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Anant Jain</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=anantja-in" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://medium.com/@tomchentw"><img src="https://avatars.githubusercontent.com/u/922234?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Tom Chen</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=tomchentw" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/emiranda04"><img src="https://avatars.githubusercontent.com/u/11409613?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Ernie Miranda</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui/commits?author=emiranda04" title="Documentation">📖</a></td>
   </tr>
 </table>
 
