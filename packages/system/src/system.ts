@@ -96,8 +96,15 @@ export const getStyleObject: GetStyleObject = ({ baseStyle }) => (props) => {
     sx,
   )
 
+  const dataPart = props?.["data-part"]
+  const increasedSpecificityStyles = dataPart
+    ? {
+        [`&,&[data-part="${dataPart}"]`]: finalStyles,
+      }
+    : finalStyles
+
   // Converts theme-aware style object to real css object
-  const computedCSS = css(finalStyles)(props.theme)
+  const computedCSS = css(increasedSpecificityStyles)(props.theme)
 
   // Merge the computed css object with styles in css prop
   const cssObject: Interpolation<StyleResolverProps> = Object.assign(
