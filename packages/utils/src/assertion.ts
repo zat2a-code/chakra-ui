@@ -21,7 +21,9 @@ export function isArray<T>(value: any): value is Array<T> {
 export const isEmptyArray = (value: any) => isArray(value) && value.length === 0
 
 // Function assertions
-export function isFunction(value: any): value is Function {
+export function isFunction<T extends Function = Function>(
+  value: any,
+): value is T {
   return typeof value === "function"
 }
 

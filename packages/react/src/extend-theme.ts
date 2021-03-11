@@ -40,7 +40,7 @@ export type BaseThemeWithExtensions<
   ? L extends (...args: any[]) => any
     ? ReturnType<L> & BaseThemeWithExtensions<BaseTheme, R>
     : L & BaseThemeWithExtensions<BaseTheme, R>
-  : ThemeOverride<BaseTheme>
+  : BaseTheme & Extensions
 
 /**
  * Function to override or customize the Chakra UI theme conveniently.
@@ -75,24 +75,6 @@ export type BaseThemeWithExtensions<
  */
 export function extendTheme<
   BaseTheme extends ChakraTheme = Theme,
-  Override extends ThemeOverride<BaseTheme> = ThemeOverride<BaseTheme>
->(override: Override): BaseTheme & Override
-
-export function extendTheme<
-  BaseTheme extends ChakraTheme = Theme,
-  Override extends ThemeOverride<BaseTheme> = ThemeOverride<BaseTheme>
->(override: Override, baseTheme: BaseTheme): BaseTheme & Override
-
-export function extendTheme<
-  BaseTheme extends ChakraTheme = Theme,
-  Override extends ThemeOverride<BaseTheme> = ThemeOverride<BaseTheme>
->(
-  extension: ThemeExtension<ThemeOverride<BaseTheme>>,
-  baseTheme: BaseTheme,
-): BaseTheme & Override
-
-export function extendTheme<
-  BaseTheme extends ChakraTheme = Theme,
   Extensions extends (
     | BaseTheme
     | ThemeOverride<BaseTheme>
@@ -100,16 +82,7 @@ export function extendTheme<
   )[] = (ThemeOverride<BaseTheme> | ThemeExtension<ThemeOverride<BaseTheme>>)[]
 >(
   ...extensions: [...Extensions]
-): BaseThemeWithExtensions<BaseTheme, Extensions>
-
-export function extendTheme<
-  BaseTheme extends ChakraTheme = Theme,
-  Extensions extends (
-    | BaseTheme
-    | ThemeOverride<BaseTheme>
-    | ThemeExtension<ThemeOverride<BaseTheme>>
-  )[] = (ThemeOverride<BaseTheme> | ThemeExtension<ThemeOverride<BaseTheme>>)[]
->(...extensions: [...Extensions]) {
+): BaseThemeWithExtensions<BaseTheme, Extensions> {
   const overrides = [...extensions]
     .slice(0, extensions.length - (extensions.length > 1 ? 1 : 0))
     .reverse()
@@ -135,11 +108,13 @@ export function extendTheme<
   )(baseTheme as BaseThemeWithExtensions<BaseTheme, Extensions>)
 }
 
-export function mergeThemeOverride(...overrides: ThemeOverride[]) {
+export function mergeThemeOverride<BaseTheme extends ChakraTheme = ChakraTheme>(
+  ...overrides: ThemeOverride<BaseTheme>[]
+): ThemeOverride<BaseTheme> {
   return mergeWith({}, ...overrides, mergeThemeCustomizer)
 }
 
-function compose<R>(...fns: Array<(a: R) => R>) {
+export function compose<R>(...fns: Array<(a: R) => R>) {
   return fns.reduce((prevFn, nextFn) => (value) => prevFn(nextFn(value)))
 }
 
