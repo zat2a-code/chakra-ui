@@ -32,6 +32,10 @@ export const compose = <T>(
   ...fns: Array<(...args: T[]) => T>
 ) => fns.reduce((f1, f2) => (...args) => f1(f2(...args)), fn1)
 
+export function pipe<R>(...fns: Array<(a: R) => R>) {
+  return (x: R) => fns.reduce((prevResult, fn) => fn(prevResult), x)
+}
+
 export function once(fn?: Function | null) {
   let result: any
 
