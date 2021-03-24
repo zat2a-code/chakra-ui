@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/toast",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "description",
   "keywords": [
     "theme",
@@ -61,7 +61,7 @@
     "@reach/alert": "0.13.2"
   },
   "devDependencies": {
-    "@chakra-ui/system": "1.5.1",
+    "@chakra-ui/system": "1.5.2",
     "framer-motion": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

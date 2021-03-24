@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.5.2
+
+### Patch Changes
+
+- [`36252981a`](https://github.com/chakra-ui/chakra-ui/commit/36252981a6e38ed138b5f41e0d50d01a19b4b77c)
+  [#3636](https://github.com/chakra-ui/chakra-ui/pull/3636) Thanks
+  [@TimKolberger](https://github.com/TimKolberger)! - - Fixed an issue where the
+  StylesProvider export was not working in every environment
+- Updated dependencies
+  [[`32e79f835`](https://github.com/chakra-ui/chakra-ui/commit/32e79f83545740e1df73e7ce689e4101646bb57d)]:
+  - @chakra-ui/styled-system@1.10.0
+
 ## 1.5.1
 
 ### Patch Changes

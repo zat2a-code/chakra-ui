@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/react@1.4.2
+  - @chakra-ui/props-docs@1.0.21
+
 ## 1.1.8
 
 ### Patch Changes

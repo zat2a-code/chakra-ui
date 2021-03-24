@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.3.1
+
+### Patch Changes
+
+- [`a8a841beb`](https://github.com/chakra-ui/chakra-ui/commit/a8a841bebb1bdb6c172c5b34be43921d4118670a)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Fix issue where
+  popover arrow cant be override
+
 ## 1.3.0
 
 ### Minor Changes

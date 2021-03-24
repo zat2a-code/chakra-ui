@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.3.4
+
+### Patch Changes
+
+- [`1d85e4729`](https://github.com/chakra-ui/chakra-ui/commit/1d85e472918346f1eb4ba7aed5291b9e7254e1f8)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Fix: remove
+  redundant role attribute from divider
+
 ## 1.3.3
 
 ### Patch Changes
